@@ -1,6 +1,7 @@
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import Header from '@/components/Header';
+import ClaudeConnector from '@/components/ClaudeConnector';
 import { demoBoulderingCentres } from '@/lib/demoBoulderingCentres';
 
 function getMcpUrl() {
@@ -116,6 +117,11 @@ export default async function DashboardPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Claude connector */}
+        <section className="mb-6">
+          <ClaudeConnector />
         </section>
 
         {/* Connect AI Assistant */}
