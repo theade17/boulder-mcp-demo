@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const MCP_URL = 'https://boulder-mcp-demo.vercel.app/mcp';
 
-export default function ClaudeConnector() {
+export default function ChatGPTConnector() {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
@@ -14,13 +14,13 @@ export default function ClaudeConnector() {
   };
 
   return (
-    <div className="border border-purple-200 rounded-xl bg-white shadow-sm overflow-hidden">
-      <div className="bg-purple-50 px-5 py-4 border-b border-purple-100">
+    <div className="border border-green-200 rounded-xl bg-white shadow-sm overflow-hidden">
+      <div className="bg-green-50 px-5 py-4 border-b border-green-100">
         <h3 className="font-semibold text-gray-900 flex items-center gap-2">
-          <span>✦</span> Connect to Claude
+          <span>🤖</span> Connect to ChatGPT
         </h3>
         <p className="text-xs text-gray-500 mt-1">
-          Opens Claude&apos;s connectors page. Create a new connector and paste the MCP URL below.
+          Requires ChatGPT with Developer Mode enabled. Opens the ChatGPT connectors page — add a new custom MCP connector and paste the URL below.
         </p>
       </div>
 
@@ -51,26 +51,30 @@ export default function ClaudeConnector() {
 
         {/* Button */}
         <a
-          href="https://claude.ai/customize/connectors"
+          href="https://chatgpt.com/?model=auto"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors"
+          className="block w-full text-center bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors"
         >
-          Open Claude Connectors →
+          Open ChatGPT →
         </a>
 
         {/* Manual steps */}
         <details className="group">
           <summary className="text-sm font-medium text-gray-700 cursor-pointer select-none list-none flex items-center gap-1">
             <span className="group-open:rotate-90 transition-transform inline-block">▶</span>
-            How to connect manually
+            How to connect — step by step
           </summary>
-          <ol className="mt-3 space-y-1 text-sm text-gray-600 list-decimal list-inside pl-1">
-            <li>Click &quot;Open Claude Connectors&quot; above.</li>
-            <li>Click &quot;Add connector&quot;.</li>
-            <li>Paste the MCP URL into the URL field.</li>
-            <li>Give it a name like <strong>Boulder MCP Demo</strong>.</li>
-            <li>Save and start a new conversation.</li>
+          <ol className="mt-3 space-y-1.5 text-sm text-gray-600 list-decimal list-inside pl-1">
+            <li>Open ChatGPT and go to <strong>Settings</strong>.</li>
+            <li>Go to <strong>Connectors</strong> (or Apps &amp; Connectors).</li>
+            <li>Enable <strong>Developer Mode</strong> if it is not already on.</li>
+            <li>Click <strong>Add custom connector</strong>.</li>
+            <li>Paste the MCP URL above into the endpoint field.</li>
+            <li>Name it <strong>Boulder MCP Demo</strong>.</li>
+            <li>Set authentication to <strong>None</strong>.</li>
+            <li>Save the connector.</li>
+            <li>Start a new chat and enable the Boulder MCP Demo connector.</li>
             <li>Ask: <em>&quot;What is the best bouldering centre for Fred?&quot;</em></li>
           </ol>
         </details>
